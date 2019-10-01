@@ -26,7 +26,7 @@
 
 
 //notes app
-const note =require("./notes")
+const notes =require("./notes")
 const chalk=require('chalk')
 const log=console.log
 const yargs=require('yargs')
@@ -50,8 +50,9 @@ yargs.command({
         }
     },
     handler: function(argv){
-        log("Title : " + argv.title)
-        log("Body :" + argv.body)
+        // log("Title : " + argv.title)
+        // log("Body :" + argv.body)
+        notes.addNote(argv.title,argv.body)
     }
 })
 
