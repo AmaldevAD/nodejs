@@ -37,8 +37,21 @@ const yargs=require('yargs')
 yargs.command({
     command :'add',
     describe:'Add a new note',
-    handler: function(){
-        log("Adding a new note")
+    builder:{
+        title:{
+            describe: 'Note title',
+            demandOption:true,
+            type:'string'
+        },
+        body:{
+            describe:"Note body",
+            demandOption:true,
+            type:'string'
+        }
+    },
+    handler: function(argv){
+        log("Title : " + argv.title)
+        log("Body :" + argv.body)
     }
 })
 
@@ -68,8 +81,8 @@ yargs.command({
         log("Reading a note")
     }
 })
-
-console.log(yargs.argv)
+yargs.parse()
+//console.log(yargs.argv)
 
 
 
